@@ -1,0 +1,5 @@
+node_modules/
+dist/*.js
+.vscode
+package-lock.json
+server.js
