@@ -6,7 +6,8 @@
 
 - react
 - @reach/router
-- react-helmet
+- @loadable
+- react-helmet-async
 - express
 
 Сборка:

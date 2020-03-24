@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from '@reach/router'
 import { Head } from '../components/Head'
 
 const NotFound = () => (
   <>
-    <Head title="Not Found" description="this page does not exist" />
-    <div className="foo">404</div>
+    <Head title="404" description="Эта страница не существует" />
+    <h1>404</h1>
+    <p>Эта страница не существует</p>
+    <Link to="/">Вернуться на главную</Link>
   </>
 )
 

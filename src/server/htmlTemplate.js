@@ -1,4 +1,4 @@
-const htmlTemplate = (html, helmet) =>
+const htmlTemplate = (html, helmet, scripts) =>
   `<!DOCTYPE html>
 <html ${helmet.htmlAttributes.toString()}>
 <head>
@@ -10,7 +10,7 @@ const htmlTemplate = (html, helmet) =>
 </head>   
 <body>
     <div id="root">${html}</div>
-    <script src="/main.js"></script>
+    ${scripts}
 </body>
 </html>`
 
