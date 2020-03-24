@@ -1,5 +1,7 @@
 # React Isomorphic
 
+![](https://github.com/zhelvis/react-isomorphic/actions/.github/workflows/nodejs.yml/badge.svg)
+
 ## Базовый шаблон для проектирования изоморфных приложений на React
 
 ### Включает в себя:
