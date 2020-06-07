@@ -1,17 +1,19 @@
 import React from 'react'
-import loadable from '@loadable/component'
-import { Router } from '@reach/router'
+import { Route, Switch } from 'react-router-dom'
 
-const Main = loadable(() => import('./pages/Main'))
-const Second = loadable(() => import('./pages/Second'))
-const NotFound = loadable(() => import('./pages/NotFound'))
+import routes from './routes'
 
 const App = () => (
-  <Router>
-    <Main path="/" />
-    <Second path="/second" />
-    <NotFound default />
-  </Router>
+  <Switch>
+    {routes.map(({ path, exact, component: Component, ...rest }) => (
+      <Route
+        key={path}
+        path={path}
+        exact={exact}
+        render={(props) => <Component {...props} {...rest} />}
+      />
+    ))}
+  </Switch>
 )
 
 export default App
