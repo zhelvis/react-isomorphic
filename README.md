@@ -5,7 +5,7 @@
 ### Включает в себя:
 
 - react
-- react-router-dom
+- @reach/router
 - @loadable
 - react-helmet-async
 - express

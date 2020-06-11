@@ -1,7 +1,15 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
-export const Head = ({ description, title }) => {
+export interface HeadProps {
+  description: string;
+  title: string;
+}
+
+export const Head: React.FC<HeadProps> = ({
+  title,
+  description,
+}: HeadProps) => {
   const locale = 'ru'
 
   return (

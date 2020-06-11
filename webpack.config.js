@@ -1,27 +1,27 @@
+/*eslint-disable*/
 const NodemonPlugin = require('nodemon-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
 const mode = process.env.NODE_ENV
 const isDev = mode === 'development'
 
 const getConfig = ({ isSsr }) => ({
   mode,
   entry: isSsr
-    ? './src/server/index.js'
+    ? './src/server/index.tsx'
     : {
-        main: './src/client/index.js',
+        main: './src/client/index.tsx',
       },
   ...(isSsr && { target: 'node' }),
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   module: {
     rules: [
       {
         enforce: 'pre',
-        test: /\.(js|jsx)$/,
+        test: /\.(js|ts)x?/,
         exclude: /node_modules/,
         use: [
           {
@@ -33,7 +33,7 @@ const getConfig = ({ isSsr }) => ({
         ],
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|ts)x?/,
         exclude: /node_modules/,
         use: [
           {
@@ -51,9 +51,9 @@ const getConfig = ({ isSsr }) => ({
                   },
                 ],
                 '@babel/preset-react',
+                '@babel/preset-typescript',
               ],
               plugins: [
-                'babel-plugin-root-import',
                 ...(isSsr ? ['babel-plugin-dynamic-import-node'] : []), // prevents code splitting on server
                 '@loadable/babel-plugin',
               ],

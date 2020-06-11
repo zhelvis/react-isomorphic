@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, RouteComponentProps } from '@reach/router'
 import { Head } from '../components/Head'
 
-const Second = () => (
+const Second: React.FC<RouteComponentProps> = () => (
   <>
     <Head title="Вторая страница" description="Привет со второй страницы" />
     <h1>Вторая</h1>

@@ -1,4 +1,10 @@
-const htmlTemplate = (html, helmet, scripts) =>
+import { HelmetData } from 'react-helmet-async'
+
+const htmlTemplate = (
+  html: string,
+  helmet: HelmetData,
+  scripts: string
+): string =>
   `<!DOCTYPE html>
 <html ${helmet.htmlAttributes.toString()}>
 <head>
