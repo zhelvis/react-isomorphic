@@ -6,10 +6,7 @@ export interface HeadProps {
   title: string;
 }
 
-export const Head: React.FC<HeadProps> = ({
-  title,
-  description,
-}: HeadProps) => {
+export const Head: React.FC = ({ title, description }: HeadProps) => {
   const locale = 'ru'
 
   return (

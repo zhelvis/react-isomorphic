@@ -1,10 +1,18 @@
 import { HelmetData } from 'react-helmet-async'
 
-const htmlTemplate = (
-  html: string,
-  helmet: HelmetData,
-  scripts: string
-): string =>
+interface htmlTemplateProps {
+  html: string;
+  helmet: HelmetData;
+  scripts: string;
+  isAuth: boolean;
+}
+
+const htmlTemplate = ({
+  html,
+  helmet,
+  scripts,
+  isAuth,
+}: htmlTemplateProps): string =>
   `<!DOCTYPE html>
 <html ${helmet.htmlAttributes.toString()}>
 <head>
@@ -16,6 +24,12 @@ const htmlTemplate = (
 </head>   
 <body>
     <div id="root">${html}</div>
+    <script>
+      window.__AUTH_STATE__ = ${JSON.stringify({ isAuth }).replace(
+        /</g,
+        '\\u003c'
+      )}
+    </script>
     ${scripts}
 </body>
 </html>`
