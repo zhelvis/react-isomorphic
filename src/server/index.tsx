@@ -4,7 +4,7 @@ import React from 'react'
 import { ChunkExtractor } from '@loadable/server'
 import { renderToString } from 'react-dom/server'
 import { ServerLocation } from '@reach/router'
-import { HelmetProvider, FilledContext } from 'react-helmet-async'
+import { HelmetProvider, HelmetData } from 'react-helmet-async'
 
 import htmlTemplate from './htmlTemplate'
 import App from '../shared/App'
@@ -16,8 +16,12 @@ app.use(express.static('dist'))
 
 const statsFile = path.resolve('./dist/loadable-stats.json')
 
+interface FilledContext {
+  helmet?: HelmetData;
+}
+
 app.get('*', (req, res) => {
-  const helmetContext: FilledContext = { helmet: null }
+  const helmetContext: FilledContext = {}
 
   const extractor = new ChunkExtractor({ statsFile })
 
@@ -34,7 +38,7 @@ app.get('*', (req, res) => {
   const { helmet } = helmetContext
   const scripts = extractor.getScriptTags()
 
-  res.send(htmlTemplate(markup, helmet, scripts))
+  res.send(htmlTemplate({ html: markup, helmet, scripts }))
 })
 
 app.listen(port, () => console.log(`app started on ${port} port`))
