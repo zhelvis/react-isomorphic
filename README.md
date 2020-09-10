@@ -2,46 +2,41 @@
 
 ## Базовый шаблон для проектирования изоморфных приложений на React
 
-### Включает в себя:
+### Включает в себя
 
 - react
 - @reach/router
 - @loadable
-- react-helmet-async
+- react-helmet
 - express
 
 Сборка:
-- webpack 
+
+- webpack
 - babel
 
 Линтинг:
+
 - eslint
 - prettier
 - pre-commit hook (lint-staged + husky)
 
 ----
-### Использование:
 
- -  Режим разработки:
+### Использование
+
+- Режим разработки:
 
         npm run dev
 
- - Сборка проекта
+- Сборка проекта
 
         npm run build
 
- - Запуск сервера
+- Запуск сервера
 
         npm start
 
- -  Автофикс
+- Автофикс
 
         npm run eslint
-
-
-
-  
-
-
-
-

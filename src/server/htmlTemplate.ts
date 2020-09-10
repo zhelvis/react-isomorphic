@@ -1,5 +1,4 @@
-import { HelmetData } from 'react-helmet-async'
-
+import { HelmetData } from 'react-helmet'
 interface HtmlTemplateProps {
   html: string;
   helmet?: HelmetData;
