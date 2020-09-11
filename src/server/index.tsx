@@ -3,7 +3,7 @@ import express from 'express'
 import React from 'react'
 import { ChunkExtractor } from '@loadable/server'
 import { renderToString } from 'react-dom/server'
-import { ServerLocation } from '@reach/router'
+import { StaticRouter } from 'react-router-dom/server'
 import { Helmet } from 'react-helmet'
 
 import htmlTemplate from './htmlTemplate'
@@ -21,9 +21,9 @@ app.get('*', (req, res) => {
 
   const markup = renderToString(
     extractor.collectChunks(
-      <ServerLocation url={req.url}>
+      <StaticRouter location={req.url}>
         <App />
-      </ServerLocation>
+      </StaticRouter>
     )
   )
 

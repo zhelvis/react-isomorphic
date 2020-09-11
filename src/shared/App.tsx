@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Router } from '@reach/router'
+import { Routes, Route } from 'react-router-dom'
 
 import loadable from '@loadable/component'
 
@@ -8,11 +8,11 @@ const Second = loadable(() => import('./pages/Second'))
 const NotFound = loadable(() => import('./pages/NotFound'))
 
 const App: React.FC = () => (
-  <Router>
-    <Main path="/" />
-    <Second path="/second" />
-    <NotFound default />
-  </Router>
+  <Routes>
+    <Route path="/" element={<Main />} />
+    <Route path="/second" element={<Second />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
 )
 
 export default App

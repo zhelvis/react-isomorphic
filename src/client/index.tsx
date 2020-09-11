@@ -5,9 +5,15 @@ import 'core-js/stable/object/assign'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { loadableReady } from '@loadable/component'
+import { BrowserRouter } from 'react-router-dom'
 
 import App from '../shared/App'
 
 loadableReady(() => {
-  ReactDOM.hydrate(<App />, document.getElementById('root'))
+  ReactDOM.hydrate(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    document.getElementById('root')
+  )
 })

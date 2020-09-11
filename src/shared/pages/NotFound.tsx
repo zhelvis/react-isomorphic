@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link, RouteComponentProps } from '@reach/router'
+import { Link } from 'react-router-dom'
 import { Head } from '../components/Head'
 
-const NotFound: React.FC<RouteComponentProps> = () => (
+const NotFound: React.FC = () => (
   <>
     <Head title="404" description="Эта страница не существует" />
     <h1>404</h1>
