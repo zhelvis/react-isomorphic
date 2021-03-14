@@ -4,7 +4,7 @@
 
 ### Включает в себя
 
-- react
+- react v17
 - react-router
 - @loadable
 - react-helmet
@@ -15,11 +15,12 @@
 - webpack
 - babel
 
-Линтинг:
+Средства разработки:
 
 - eslint
 - prettier
 - pre-commit hook (lint-staged + husky)
+- why did you render
 
 ----
 
