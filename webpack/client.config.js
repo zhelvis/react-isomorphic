@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
 const mode = process.env.NODE_ENV
+const isDev = mode === 'development'
 
 module.exports = {
   mode,
@@ -32,7 +33,14 @@ module.exports = {
                     corejs: { version: 3, proposals: true },
                   },
                 ],
-                '@babel/preset-react',
+                [
+                  '@babel/preset-react',
+                  {
+                    runtime: 'automatic',
+                    development: isDev,
+                    importSource: '@welldone-software/why-did-you-render',
+                  },
+                ],
                 '@babel/preset-typescript',
               ],
               plugins: ['@loadable/babel-plugin'],

@@ -27,10 +27,15 @@ module.exports = {
                 [
                   '@babel/preset-env',
                   {
-                    targets: 'node 10',
+                    targets: 'node 14',
                   },
                 ],
-                '@babel/preset-react',
+                [
+                  '@babel/preset-react',
+                  {
+                    runtime: 'automatic',
+                  },
+                ],
                 '@babel/preset-typescript',
               ],
               plugins: [

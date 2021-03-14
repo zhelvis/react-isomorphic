@@ -1,6 +1,7 @@
 node_modules/
 dist/*.js
 dist/loadable-stats.json
+dist/main.js.LICENSE.txt
 .vscode
 package-lock.json
 server.js
