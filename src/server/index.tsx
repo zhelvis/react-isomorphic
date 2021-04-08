@@ -14,7 +14,7 @@ const app = express()
 
 app.use(express.static('dist'))
 
-const statsFile = path.resolve('./dist/loadable-stats.json')
+const statsFile = path.resolve('./loadable-stats.json')
 
 app.get('*', (req, res) => {
   const extractor = new ChunkExtractor({ statsFile })

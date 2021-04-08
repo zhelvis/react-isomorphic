@@ -1,14 +1,27 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const LoadablePlugin = require('@loadable/webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const mode = process.env.NODE_ENV
 const isDev = mode === 'development'
 
 module.exports = {
   mode,
+  optimization: {
+    minimize: !isDev,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
+    ],
+  },
   entry: {
     main: './src/client/index.tsx',
   },
@@ -52,14 +65,17 @@ module.exports = {
   },
   plugins: [
     new ESLintPlugin({ fix: true }),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*.js', 'loadable-stats.json'],
+    new LoadablePlugin({
+      outputAsset: false,
+      writeToDisk: {
+        filename: path.join(__dirname, '../'),
+      },
     }),
-    new LoadablePlugin(),
   ],
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.join(__dirname, '../dist'),
     filename: '[name].js',
     publicPath: '/',
+    clean: true,
   },
 }

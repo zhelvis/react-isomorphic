@@ -52,7 +52,7 @@ module.exports = {
     new ESLintPlugin({ fix: true }),
     ...(isDev ? [new NodemonPlugin()] : []),
   ],
-  externals: nodeExternals(),
+  externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, '../'),
     filename: 'server.js',
