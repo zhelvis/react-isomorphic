@@ -1,5 +1,7 @@
 # React Isomorphic
 
+[![Node.js CI](https://github.com/zhelvis/react-isomorphic/actions/workflows/nodejs.yml/badge.svg?branch=master)](https://github.com/zhelvis/react-isomorphic/actions/workflows/nodejs.yml)
+
 ## Базовый шаблон для проектирования изоморфных приложений на React
 
 ### Включает в себя
