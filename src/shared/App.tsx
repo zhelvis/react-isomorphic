@@ -1,13 +1,11 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import loadable from '@loadable/component'
+import Main from './pages/Main'
+import Second from './pages/Second'
+import NotFound from './pages/NotFound'
 
-const Main = loadable(() => import('./pages/Main'))
-const Second = loadable(() => import('./pages/Second'))
-const NotFound = loadable(() => import('./pages/NotFound'))
-
-const App: React.FC = () => (
+const App: FC = () => (
   <Routes>
     <Route path="/" element={<Main />} />
     <Route path="/second" element={<Second />} />
