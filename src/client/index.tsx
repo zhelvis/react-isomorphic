@@ -1,17 +1,16 @@
 import './wdyr'
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { loadableReady } from '@loadable/component'
+import React, { StrictMode } from 'react'
+import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import App from '../shared/App'
 
-loadableReady(() => {
-  ReactDOM.hydrate(
+ReactDOM.hydrateRoot(
+  document,
+  <StrictMode>
     <BrowserRouter>
       <App />
-    </BrowserRouter>,
-    document.getElementById('root')
-  )
-})
+    </BrowserRouter>
+  </StrictMode>
+)
