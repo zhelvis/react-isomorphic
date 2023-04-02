@@ -32,6 +32,6 @@ jobs:
         run_install: true
 
     - run: Build
-    - run: pnpm run build
+    - run: npm run build
       env:
         CI: true
